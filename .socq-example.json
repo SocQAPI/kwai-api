@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "kwai",
+  "endpointCount": 3,
+  "endpoints": [
+    "kwai/profile",
+    "kwai/user-posts",
+    "kwai/post"
+  ],
+  "landingPage": "https://socq.ai/apis/kwai",
+  "docsPage": "https://docs.socq.ai/api-manual/kwai/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "platform": "kwai",
+  "platformName": "Kwai",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "kwai/profile",
+      "name": "Kwai Profile API",
+      "description": "Retrieve one public Kwai profile by username or supported profile URL with normalized identity, profile imagery, account flags, visible counts, and collection context.",
+      "method": "POST",
+      "path": "/v1/kwai/profile",
+      "payload": "payloads/profile.json",
+      "launchedAt": "2026-08-15",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/kwai/profile",
+      "landingUrl": "https://socq.ai/apis/kwai/profile",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "url"
+        ],
+        [
+          "username"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A non-empty profile reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A Kwai username with one optional leading @ followed by 1 to 64 ASCII letters, digits, periods, underscores, or hyphens, for a maximum total length of 65 characters.",
+            "maxLength": 65,
+            "pattern": "^@?[A-Za-z0-9._-]{1,64}$"
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "username"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "kwai/user-posts",
+      "name": "Kwai User Posts API",
+      "description": "Collect one page of public Kwai posts from a username or supported profile URL, returning text, author, media, hashtags, timestamps, and visible engagement as normalized records.",
+      "method": "POST",
+      "path": "/v1/kwai/user-posts",
+      "payload": "payloads/user-posts.json",
+      "launchedAt": "2026-08-14",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/kwai/user-posts",
+      "landingUrl": "https://socq.ai/apis/kwai/user-posts",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "url"
+        ],
+        [
+          "username"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A non-empty profile reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A Kwai username with one optional leading @ followed by 1 to 64 ASCII letters, digits, periods, underscores, or hyphens, for a maximum total length of 65 characters.",
+            "maxLength": 65,
+            "pattern": "^@?[A-Za-z0-9._-]{1,64}$"
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "username"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "kwai/post",
+      "name": "Kwai Post API",
+      "description": "Retrieve one public Kwai post from a known kwai.com or kwai-video.com URL, returning normalized text, author, media, timestamps, and visible engagement.",
+      "method": "POST",
+      "path": "/v1/kwai/post",
+      "payload": "payloads/post.json",
+      "launchedAt": "2026-08-14",
+      "price": "0.19 credits ($0.00095) per call",
+      "billing": {
+        "baseCredits": 0.19,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/kwai/post",
+      "landingUrl": "https://socq.ai/apis/kwai/post",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A non-empty post reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    }
+  ]
+}
